@@ -9,7 +9,7 @@
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-  background-image: url({{ url_for('static',filename='house1.jpg') }});
+  background-image: url({{ url_for('static',filename='heart.jpg') }});
   min-height: 100%;
   background-position: center;
   background-size: cover;
@@ -28,20 +28,20 @@ body, html {height: 100%}
     <h2>Patient Details:</h2>
     <ul>
 	<li>Age: {{session['age']}}</li>
-	<li>Sex: {{session['sex']}}</li>
-	<li>Chest pain type: {{session['cp']}}</li>
-	<li>trestbps: {{session['trestbps']}}</li>
+	<li>Sex: {{gender}}</li>
+	<li>Chest pain type: {{ccp}}</li>
+	<li>Resting Blood Pressure: {{session['trestbps']}}</li>
 	<li>Cholesterol:  {{session['chol']}}</li>
-	<li>Fasting Blood Sugar > 120 mg/dl: {{session['fbs']}}</li>
-	<li>Resting Ecg: {{session['restecg']}}</li>
-	<li>thalach: {{session['thalach']}}</li>
-	<li>Excercise induced angina: {{session['exang']}}</li>
+	<li>Fasting Blood Sugar: {{fblood}}</li>
+	<li>Resting ECG: {{ec}}</li>
+	<li>Maximum Heart Rate Achieved: {{session['thalach']}}</li>
+	<li>Excercise Induced Angina: {{ex}}</li>
 	<li>Oldpeak:  {{session['oldpeak']}}</li>
-	<li>Slope:  {{session['slope']}}</li>
-	<li>No of major vessels colored by fluoroscopy: {{session['ca']}}</li>
-	<li>Thal: {{session['thal']}}</li>
+	<li>Slope:  {{slo}}</li>
+	<li>Number of Unclogged Major Vessels: {{session['ca']}}</li>
+	<li>Thalassemia: {{tha}}</li>
 </ul>
-<h2>Results: ${{results}}</h2>
+<h2>Results: {{results}}</h2>
 <h3>Model Accuracy: 90% </h3>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
     <p class="w3-large w3-center"></p>

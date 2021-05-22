@@ -33,9 +33,9 @@ def return_prediction(model, scaler, sample_json):
     prediction = model.predict(heart)
     
     if prediction == 0:
-        return 'Affected'
+        return 'You are at risk of being affected'
     else:
-        return 'Not Affected'
+        return 'You are not affected    '
 
 
 app = Flask(__name__)
@@ -44,8 +44,8 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 
 # REMEMBER TO LOAD THE MODEL AND THE SCALER!
-house_model = load("heart_model.h5")
-house_scaler = load("heart_scaler.pkl")
+heart_model = load("heart_model.h5")
+heart_scaler = load("heart_scaler.pkl")
 
 
 # Now create a WTForm Class
@@ -97,6 +97,8 @@ def index():
     return render_template('heartdisease_input.html', form=form) 
 
 
+
+
 @app.route('/predict')
 def prediction():
 
@@ -110,17 +112,79 @@ def prediction():
     content['fbs'] = float(session['fbs'])
     content['restecg'] = float(session['restecg'])
     content['thalach'] = float(session['thalach'])
+    content['slope'] = float(session['slope'])
     content['exang'] = float(session['exang'])
     content['oldpeak'] = float(session['oldpeak'])
-    content['slope'] = float(session['slope'])
     content['ca'] = float(session['ca'])
     content['thal'] = float(session['thal'])
 
 
+
+
+
     results = return_prediction(model=heart_model,scaler=heart_scaler,sample_json=content) 
 
-    return render_template('predictions.html',results=round(results,2))
 
+    if content['sex'] == 0:
+        gen = 'Female'
+    else:
+        gen = 'Male'
+
+    if content['cp'] == 1:
+        c = 'Typical Angina'
+    elif content['cp'] == 2:
+        c = 'Atypical Angina'
+    elif content['cp'] == 3:
+        c = 'Non-anginal Pain'
+    else:
+        c = 'Asymptomatic'
+
+    if content['fbs'] == 0:
+        blood = 'Low'
+    else:
+        blood = 'High'
+
+    if content['restecg'] == 0:
+        ecg = 'Normal'
+    elif content['restecg'] == 1:
+        ecg = 'ST-T Wave Abnormality'
+    else:
+        ecg = 'Left Ventricular Hypertrophy'
+
+    if content['exang'] == 0:
+        exercise = 'No'
+    else:
+        exercise = 'Yes'
+
+    if content['slope'] == 1:
+        sl = 'Unsloping'
+    elif content['slope'] == 2:
+        sl = 'Flat'
+    else:
+        sl = 'Downsloping'
+
+    if content['thal'] == 0:
+        th = 'Null'
+    elif content['thal'] == 1:
+        th = 'Normal'
+    elif content['thal'] == 2:
+        th = 'Fixed Defects'
+    else: 
+        th = 'Reversible Defects'
+
+    return render_template('predictions.html',results=(results),gender=(gen),ccp=(c),fblood=(blood),ec=(ecg),ex=(exercise),slo=(sl),tha=(th))
+
+
+"""
+def gender():
+        if content['sex'] == 0:
+            gen = 'Female'
+        else:
+            gen = 'Male'
+
+    content['age']=gen
+return gen
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)

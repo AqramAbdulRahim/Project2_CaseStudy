@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>House Sales Prediction</title>
+    <title>Heart Disease</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -196,23 +196,27 @@
           <label for="age">Age<span>*</span></label>
           <input id="age" type="int" name="age" required/>
          <div class="item">
-          <label for="sex">Sex<span>*</span></label>
-          <input id="sex" type="int" name="sex" required/>
+          <p>Sex</p>
+          <select name='sex' id='sex'>
+            <option selected value="" disabled selected></option>
+            <option value="0" >Female</option>
+            <option value="1" >Male</option>
+          </select>
     <br>
     </div>
     <div class="item">
-          <p>Chest pain type</p>
+          <p>Chest Pain Type</p>
           <select name='cp' id='cp'>
             <option selected value="" disabled selected></option>
-            <option value="1" >1: Typical Angina</option>
-            <option value="2" >2: Atypical Angina</option>
-            <option value="3" >3: Non-anginal Pain</option>
-            <option value="4" >4: Asymptomatic</option>
+            <option value="1" >Typical Angina</option>
+            <option value="2" >Atypical Angina</option>
+            <option value="3" >Non-anginal Pain</option>
+            <option value="4" > Asymptomatic</option>
           </select>
     <br>
     <br>
      <div class="item">
-          <label for="trestbps">trestbps<span>*</span></label>
+          <label for="trestbps">Resting Blood Pressure<span>*</span></label>
           <input id="trestbps" type="int" name="trestbps" required/>
     <br>
     <br>
@@ -229,7 +233,7 @@
           </select>
     <br>
     <div class="item">
-          <p>Resting Ecg</p>
+          <p>Resting ECG</p>
           <select name='restecg' id='restecg'>
             <option selected value="" disabled selected></option>
             <option value="0" >Normal</option>
@@ -238,11 +242,11 @@
     <br>
     <br>
      <div class="item">
-          <label for="thalach">thalach<span>*</span></label>
+          <label for="thalach">Maximum Heart Rate Achieved<span>*</span></label>
           <input id="thalach" type="int" name="thalach" required/>
     <br>
         <div class="item">
-          <p>Excercise induced angina</p>
+          <p>Excercise induced Angina</p>
           <select name='exang' id='exang'>
             <option selected value="" disabled selected></option>
             <option value="0" >No</option>
@@ -250,20 +254,20 @@
           </select>
     <br>
     <div class="item">
-          <label for="oldpeak">oldpeak<span>*</span></label>
+          <label for="oldpeak">Oldpeak<span>*</span></label>
           <input id="oldpeak" type="int" name="oldpeak" required/>
     <br>
         <div class="item">
-          <p>slope</p>
+          <p>Slope</p>
           <select name='slope' id='slope'>
             <option selected value="" disabled selected></option>
-            <option value="1" >upsloping</option>
-            <option value="2" >flat</option>
-            <option value="3" >downsloping</option>
+            <option value="1" >Upsloping</option>
+            <option value="2" >Flat</option>
+            <option value="3" >Downsloping</option>
           </select>
     <br>
         <div class="item">
-          <p>No of major vessels colored by flouroscopy</p>
+          <p>Number of Unclogged Major Vessels</p>
           <select name='ca' id='ca'>
             <option selected value="" disabled selected></option>
             <option value="0" >0</option>
@@ -273,8 +277,14 @@
           </select>
     <br>
     <div class="item">
-          <label for="thal">thal<span>*</span></label>
-          <input id="thal" type="int" name="thal" required/>
+          <p>Thalessemia</p>
+          <select name='thal' id='thal'>
+            <option selected value="" disabled selected></option>
+            <option value="0" >Null</option>
+            <option value="1" >Normal</option>
+            <option value="2" >Fixed Defects</option>
+            <option value="3" >Reversible Defects</option> 
+          </select>
 
     {{ form.submit() }}
 </form>
