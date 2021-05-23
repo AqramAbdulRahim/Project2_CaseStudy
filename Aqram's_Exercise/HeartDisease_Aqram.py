@@ -88,7 +88,7 @@ def index():
         return redirect(url_for("prediction"))
 
 
-    return render_template('HeartDisease_HTML.html', form=form) 
+    return render_template('HeartDisease_Template.html', form=form) 
 
 
 @app.route('/predict')
@@ -96,25 +96,20 @@ def prediction():
 
     content = {}
 
-    content['Lot Frontage'] = float(session['Lot_Frontage']) 
-    content['Lot Area'] = float(session['Lot_Area']) 
-    content['Overall Qual'] = float(session['Overall_Qual'])
-    content['Year Built'] = float(session['Year_Built'])
-    content['Year Remod/Add'] = float(session['Year_Remod'])
-    content['Exter Qual'] = float(session['Exter_Qual'])
-    content['Bsmt Qual'] = float(session['Bsmt_Qual'])
-    content['Bsmt Exposure'] = float(session['Bsmt_Exposure'])
-    content['BsmtFin SF 1'] = float(session['BsmtFin_SF_1'])
-    content['Total Bsmt SF'] = float(session['Total_Bsmt_SF'])
-    content['1st Flr SF'] = float(session['First_Flr_SF'])
-    content['Gr Liv Area'] = float(session['Gr_Liv_Area'])
-    content['Kitchen Qual'] = float(session['Kitchen_Qual'])
-    content['Fireplace Qu'] = float(session['Fireplaces'])
-    content['Garage Finish'] = float(session['Garage_Finish'])
-    content['Garage Cars'] = float(session['Garage_Cars'])
-    content['Garage Area'] = float(session['Garage_Area'])
-    content['Neighborhood_NridgHt'] = float(session['Neighborhood_NridgHt'])
-    content['Sale Condition_Partial'] = float(session['Sale_Condition_Partial'])
+    content['age'] = float(session['age']) 
+    content['sex'] = float(session['sex']) 
+    content['cp'] = float(session['cp'])
+    content['trestbps'] = float(session['trestbps'])
+    content['chol'] = float(session['chol'])
+    content['fbs'] = float(session['fbs'])
+    content['restecg'] = float(session['restecg'])
+    content['thalach'] = float(session['thalach'])
+    content['exang'] = float(session['exang'])
+    content['oldpeak'] = float(session['oldpeak'])
+    content['slope'] = float(session['slope'])
+    content['ca'] = float(session['ca'])
+    content['thal'] = float(session['thal'])
+    
 
     results = return_prediction(model=house_model,scaler=house_scaler,sample_json=content) 
 
