@@ -19,7 +19,7 @@
 		
 		<!-- Navbar-->
 		<nav class="navbar navbar-dark bg-dark">
-			<span class="navbar-brand mb-0 h1">Heart Disease Test</span>
+			<span class="navbar-brand mb-0 h1">Heart Disease Prediction</span>
 		</nav>
 		<div class="container">
 			<br>
@@ -35,7 +35,7 @@
 					  <div class="form-group  row">
 						<div class="col-sm-3">
 							<label for="age">Age</label>
-							<input type="number" class="form-control" id="age" name="age" required>
+							<input type="number" class="form-control" id="age" name="age" required="required" placeholder="Range: 1-120">
 						</div>
 						<div class="col-sm-3">
 							<label for="sex">Sex</label>
@@ -60,18 +60,18 @@
 						  </div>
 						  <div class="col-sm">
 							<label for="trestbps">Resting Blood Pressure in mm Hg</label>
-							<input type="number" class="form-control" id="trestbps" name="trestbps"  required>
+							<input type="number" class="form-control" id="trestbps" name="trestbps"  required="required" placeholder="Range: 70-200">
 						  </div>
 						  <div class="col-sm">
 							<label for="chol">Serum Cholestoral in mg/dl</label>
-							<input type="number" class="form-control" id="chol" name="chol" required>
+							<input type="number" class="form-control" id="chol" name="chol" required="required" placeholder="Range: 100-500">
 						  </div>
 						  <div class="col-sm">
-							<label for="fbs">Fasting Blood Sugar > 120 mg/dl</label>
+							<label for="fbs">Is Your Fasting Blood Sugar > 120 mg/dl?</label>
 							<select class="form-control" id="fbs" name="fbs" required>
 							  <option disabled selected value> -- Select an Option -- </option>
-							  <option value = "0">False</option>
-							  <option value = "1">True</option>
+							  <option value = "0">No</option>
+							  <option value = "1">Yes</option>
 							</select>
 						</div>
 					  </div>
@@ -89,11 +89,11 @@
 							  </div>
 							  <div class="col-sm">
 								<label for="thalach">Maximum Heart Rate</label>
-								<input type="number" class="form-control" id="thalach" name="thalach" required>
+								<input type="number" class="form-control" id="thalach" name="thalach" required="required" placeholder="Range: 70-250">
 							  </div>
 							  <div class="col-sm">
 								<label for="oldpeak">ST Depression Induced</label>
-								<input type="number" step="any" class="form-control" id="oldpeak" name="oldpeak" required>
+								<input type="number" step="any" class="form-control" id="oldpeak" name="oldpeak" required="required" placeholder="Range: 0-7.0">
 							  </div>
 							  <div class="col-sm">
 								<label for="exang">Exercise Induced Angina </label>
