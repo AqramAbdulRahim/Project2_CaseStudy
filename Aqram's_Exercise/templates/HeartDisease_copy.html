@@ -8,7 +8,6 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 		<title>Heart Disease Test</title>
 
-
 		<style>
 		
 			/* Add styles to the form container */
@@ -46,7 +45,7 @@
                 left: 50%;
                 -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
-  					      }
+  			}
 
 /*			<input class="btn btn-primary" type="submit" value="Analyze">
 */
@@ -56,8 +55,7 @@
 
 	</head>
 
-
-	<body class="bgcolor1">
+	<body class= "bgcolor1">
 	<!-- Java Script -->	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -65,11 +63,9 @@
 
 		 
 		<!-- Navbar-->
-
 		<nav class="navbar navbar-dark bg-dark">
 			<span class="navbar-brand mb-0 h1">Heart Disease Prediction</span>
 		</nav>
-
 		
 		<div class="container">
 			<br>
@@ -77,7 +73,8 @@
 			<form method ="POST" >
 				<fieldset class="bgcolor3">
 
-                <input id="csrf_token" name="csrf_token" type="hidden" value="IjllZDczMGE4ZDc2OGJlOGVkOGVhNDEwZWYzZTY1ZjhlNTc0ZjJiNGQi.YKykIA.C8briHxUnLmasy9Pem33N2wt7ew">
+                {#  This is hidden_tag. #}
+				 {{ form.hidden_tag() }}
 
 				<p style="color:white; font-size:35px; background-color: red">
 					Heart Disease Test Form
@@ -101,7 +98,7 @@
 					  <br>
 					  <div class="form-group  row">
 						  <div class="col-sm">
-							<label for="cp">Chest Pain Type</label>
+							<label for="cp">Chest Pain Type&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 							<select class="form-control" id="cp" name = "cp" required>
 							  <option disabled selected value> -- Select an Option -- </option>
 							  <option value = "0">Typical Angina</option>
@@ -111,11 +108,11 @@
 							</select>
 						  </div>
 						  <div class="col-sm">
-							<label for="trestbps">Resting Blood Pressure in mm Hg</label>
+							<label for="trestbps">Resting Blood Pressure in mm Hg&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 							<input type="number" class="form-control" id="trestbps" name="trestbps"  required="required" placeholder="Range: 70-200">
 						  </div>
 						  <div class="col-sm">
-							<label for="chol">Serum Cholestoral in mg/dl</label>
+							<label for="chol">Serum Cholestoral in mg/dl&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
 							<input type="number" class="form-control" id="chol" name="chol" required="required" placeholder="Range: 100-500">
 						  </div>
 						  <div class="col-sm">
@@ -197,12 +194,15 @@
                         
 
 						    <body>
+
 						    <button class="button">Analyze</button>
-						  </body>
+						    
+						    </body>
 
                        
 					  </div>
-								
+					  <div id ="results">
+							<strong style="color:red">{{results}}</strong>		
 					 </div>
 				     </div>
 			 </fieldset>
